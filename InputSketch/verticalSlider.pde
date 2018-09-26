@@ -1,19 +1,14 @@
 
 //for the haptics thing
 
-//needs some method of entering a precise value by keyboard
-//maybe also constraining it to certain step sizes (using integer instead of float might already fix stuff
 
-
-//a slider is a button that does not toggle, instead it returns a value
-//rangeMix & rangeMax are in percentages, a float between 0 & 1
 public class vSlider extends Slider {
 
 
   //constructor without position
   vSlider() {
     super(" : ");
-    sliderPosition = int(buttonHeight*0.5)+buttonY;
+    sliderValue = 0.5;
   }
 
 
@@ -23,7 +18,7 @@ public class vSlider extends Slider {
     buttonY = y;
     buttonWidth = w;
     buttonHeight = h;
-    //sliderPosition = int(buttonHeight*sliderValue)+buttonY; // <---- initializing, helps
+    sliderPosition = int(buttonHeight*sliderValue)+buttonY; // <---- initializing, helps
 
     fill(state? boxActive:boxInactive); //color of rectangle
     rect(buttonX, buttonY, buttonWidth, buttonHeight);
@@ -31,14 +26,14 @@ public class vSlider extends Slider {
     fill(handle);
     //  rect(buttonX, sliderPosition-2, buttonWidth, 4);
     noStroke();
-    rect(buttonX, buttonY+float(buttonHeight/2), buttonWidth, sliderPosition-(buttonHeight)-11);
+    rect(buttonX, buttonY+float(buttonHeight/2), buttonWidth, sliderPosition-(buttonHeight));
     // rect(buttonX, sliderPosition-2 4, buttonWidth);
 
     if (this.checkMouse) {
       this.activateClick();
     }
     if (this.checkKey) {
-      this.activateKey(); 
+      this.activateKey();
     }
     if (displayName) {
       fill(state? textActive:textInactive); //color of name
