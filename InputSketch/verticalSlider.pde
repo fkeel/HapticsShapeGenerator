@@ -18,7 +18,7 @@ public class vSlider extends Slider {
     buttonY = y;
     buttonWidth = w;
     buttonHeight = h;
-    sliderPosition = int(buttonHeight*sliderValue)+buttonY; // <---- initializing, helps
+    sliderPosition = int(buttonHeight*(1 - sliderValue))+buttonY; // <---- initializing, helps
 
     fill(state? boxActive:boxInactive); //color of rectangle
     rect(buttonX, buttonY, buttonWidth, buttonHeight);
@@ -26,7 +26,7 @@ public class vSlider extends Slider {
     fill(handle);
     //  rect(buttonX, sliderPosition-2, buttonWidth, 4);
     noStroke();
-    rect(buttonX, buttonY+float(buttonHeight/2), buttonWidth, sliderPosition-(buttonHeight));
+    rect(buttonX, buttonY+buttonHeight/2, buttonWidth, (sliderPosition-buttonY)-buttonHeight/2 ); // <--- white indicator
     // rect(buttonX, sliderPosition-2 4, buttonWidth);
 
     if (this.checkMouse) {
@@ -37,7 +37,7 @@ public class vSlider extends Slider {
     }
     if (displayName) {
       fill(state? textActive:textInactive); //color of name
-      text(buttonName, buttonX+nameOffsetX, buttonY+nameOffsetY+buttonHeight);
+     // text(buttonName, buttonX+nameOffsetX, buttonY+nameOffsetY+buttonHeight);
       // fill(state? highGreen:highRed);  //color of hotkey
     }
   }
@@ -72,7 +72,7 @@ public class vSlider extends Slider {
 
 
   float getSliderValue() { //here we ask what its value is
-    sliderValue = map(sliderPosition, buttonY, buttonY+buttonHeight, sliderMin, sliderMax);
+    sliderValue = 1 - map(sliderPosition, buttonY, buttonY+buttonHeight, sliderMin, sliderMax);
     return sliderValue;
   }
 }
