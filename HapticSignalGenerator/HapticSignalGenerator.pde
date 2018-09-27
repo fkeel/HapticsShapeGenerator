@@ -35,9 +35,9 @@ void setup() {
   addSine(40, 6);
   addSine(120, 1);
   addSine(360, 0.16);
-  addSine(1080, 0.1);
-  addSine(3240, 0.1);
-  addSine(9720, 0.1);
+  // addSine(1080, 0.027); //values are too small to add properly. needs to be 'double' instead of float (or multiplied by 100 or something
+  // addSine(3240, 0.1);
+  // addSine(9720, 0.1);
   addSine(4, 20);
 
   //set values
@@ -48,11 +48,15 @@ void setup() {
     temp = map(samples[i], -max, max, 0, 1);
     sliders[i].setSliderValue(temp);
   }
+
+  fill(255, 0, 0);
+  text("Use mouse to tweak curve, add or remove detail, or redraw - The curve displayed here can be manipulated in line 34 of this sketch - Hit any key to output curve as 11-bit array", 20, 40);
 }
 
 
 
 void draw() {
+
 
   noStroke();
   //display values
