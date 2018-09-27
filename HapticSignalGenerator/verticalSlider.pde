@@ -1,6 +1,4 @@
 
-//for the haptics thing
-
 
 public class vSlider extends Slider {
 
@@ -51,16 +49,16 @@ public class vSlider extends Slider {
     if (mousePressed && super.hover()) { //if we press down, the slider becomes active
       active = true;
 
-      if (mouseY>buttonY && mouseY < buttonY+buttonHeight) {
+   //   if (mouseY>buttonY && mouseY < buttonY+buttonHeight) {
 
-        if ((mouseX>buttonX) && (mouseX < buttonX+buttonWidth)) {
+        if ((mouseX >= buttonX) && (mouseX <= buttonX+buttonWidth)) {
           fill(0);
           sliderPosition = mouseY;
           this.getSliderValue(); //add the value, so you know what you're doing
         } else {
           fill(255);
         }
-      }
+    //  }
       fill(255);
 
 

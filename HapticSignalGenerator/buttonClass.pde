@@ -4,6 +4,9 @@
 //once drawn, buttons track if they are toggled or not
 //you can toggle by clicking or by using the hotkey
 
+//font to make things look nice
+PFont font;
+
 public class Button {
   int buttonX, buttonY, buttonWidth, buttonHeight; //position & dimensions
   int nameOffsetX, nameOffsetY; //where to draw labels
@@ -49,7 +52,7 @@ public class Button {
     }
     buttonName = stringArray[0];
     hotKey = stringArray[1].charAt(0);
-    println("Button Created - Name: " + buttonName + ", HotKey: " + hotKey);
+    // println("Button Created - Name: " + buttonName + ", HotKey: " + hotKey);
     state = false;
   }
 
@@ -153,8 +156,8 @@ public class Button {
 
   //checks if curser is within bounds
   boolean hover() {
-    return mouseX > buttonX & mouseX < buttonX+buttonWidth 
-      & mouseY > buttonY & mouseY < buttonY+buttonHeight;
+    return mouseX >= buttonX & mouseX <= buttonX+buttonWidth 
+      & mouseY >= buttonY & mouseY <= buttonY+buttonHeight;
   }
   /// messing with colors
   void inactiveFill(int a, int b, int c) {
