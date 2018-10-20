@@ -1,8 +1,10 @@
 
 
-//Sketch for Generating or Drawing haptic Signal
-//Creates an array of values to be written to the DAC of a Teensy
+// Sketch for Generating or Drawing haptic Signal
+// Creates an array of values to be written to the DAC of a Teensy or similar board
+// by paul.strohmeier@gmail.com
 
+//This code is licensed as CC BY-SA 4.0 - You can share & adapt, but must attribute it to paul.strohmeier@gmail.com 
 
 
 //Sampling Rate (per second)
@@ -65,6 +67,7 @@ void draw() {
   }
 }
 
+//maybe also make 'addSaw' and 'addSquare' functions
 void addSine(float frequency, float weight) {
   float value = 0;
 
